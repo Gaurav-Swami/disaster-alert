@@ -50,7 +50,7 @@ app.get("/disasters", (req, res) => {
         includeConceptLabel: false,
         includeConceptTrendingScore: true,
         includeSourceTitle: false,
-        apiKey: "fb5313f1-63f0-4574-8f62-0e0c1808128f", // Directly using the provided API key
+        apiKey: process.env.NEWS_API_KEY, // Use environment variable for API key
       },
     },
     (error, response, body) => {
@@ -67,8 +67,7 @@ app.get("/disasters", (req, res) => {
   );
 });
 
-// Route to fetch calamities data
-
+// Start server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}...`);
 });
